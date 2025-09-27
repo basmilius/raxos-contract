@@ -27,5 +27,8 @@
             "url": "../*",
             "symlink": true
         }
-    ]
+    ],
+    "require": {
+        "ext-pdo": "*"
+    }
 }
