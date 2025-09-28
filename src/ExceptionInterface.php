@@ -13,4 +13,15 @@ use Throwable;
  * @package Raxos\Contract
  * @since 2.0.0
  */
-interface ExceptionInterface extends JsonSerializable, Throwable {}
+interface ExceptionInterface extends JsonSerializable, Throwable
+{
+
+    public string $error {
+        get;
+    }
+
+    public string $errorDescription {
+        get;
+    }
+
+}

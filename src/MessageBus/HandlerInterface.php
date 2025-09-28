@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace Raxos\Contract\MessageBus;
 
-use Exception;
 use Raxos\Terminal\Printer;
+use Throwable;
 
 /**
  * Interface HandlerInterface
@@ -23,7 +23,7 @@ interface HandlerInterface
      * @param Printer $printer
      *
      * @return void
-     * @throws Exception
+     * @throws Throwable
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */

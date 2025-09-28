@@ -4,9 +4,9 @@ declare(strict_types=1);
 namespace Raxos\Contract\Router;
 
 use Closure;
-use Exception;
 use Raxos\Router\Request\Request;
 use Raxos\Router\Response\Response;
+use Throwable;
 
 /**
  * Interface MiddlewareInterface
@@ -25,7 +25,7 @@ interface MiddlewareInterface
      * @param Closure(Request):Response $next
      *
      * @return Response
-     * @throws Exception
+     * @throws Throwable
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
