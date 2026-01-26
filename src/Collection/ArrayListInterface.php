@@ -66,7 +66,7 @@ interface ArrayListInterface extends ArrayAccess, ArrayableInterface, Countable,
     /**
      * Returns TRUE if the given item exists in the array list.
      *
-     * @param TValue $item
+     * @param callable(TValue, TKey):bool|TValue $item
      *
      * @return bool
      * @author Bas Milius <bas@mili.us>
@@ -149,6 +149,15 @@ interface ArrayListInterface extends ArrayAccess, ArrayableInterface, Countable,
     public function first(?callable $predicate = null, mixed $default = null): mixed;
 
     /**
+     * Returns the first key of the array list.
+     *
+     * @return TKey|string|int|null
+     * @author Bas Milius <bas@mili.us>
+     * @since 2.0.0
+     */
+    public function firstKey(): string|int|null;
+
+    /**
      * Groups the items of the array list using the result of the
      * given function.
      *
@@ -183,7 +192,7 @@ interface ArrayListInterface extends ArrayAccess, ArrayableInterface, Countable,
     /**
      * Returns the keys in the array list.
      *
-     * @return static<TKey, int>
+     * @return static<int, TKey>
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      * @see self::values()
@@ -204,6 +213,15 @@ interface ArrayListInterface extends ArrayAccess, ArrayableInterface, Countable,
      * @since 2.0.0
      */
     public function last(?callable $predicate = null, mixed $default = null): mixed;
+
+    /**
+     * Returns the last key of the array list.
+     *
+     * @return TKey|string|int|null
+     * @author Bas Milius <bas@mili.us>
+     * @since 2.0.0
+     */
+    public function lastKey(): mixed;
 
     /**
      * Maps all the items in the array list using the given function.
@@ -346,7 +364,7 @@ interface ArrayListInterface extends ArrayAccess, ArrayableInterface, Countable,
     /**
      * Returns the values of the array list.
      *
-     * @return $this
+     * @return static<int, TValue>
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      * @see self::keys()

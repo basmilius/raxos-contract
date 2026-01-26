@@ -714,7 +714,7 @@ interface QueryInterface
      * Queries the given relation.
      *
      * @param string $relation
-     * @param callable|null $fn
+     * @param callable(QueryInterface<TModel>):void|null $fn
      *
      * @return QueryInterface<TModel>
      * @throws DatabaseExceptionInterface
@@ -723,7 +723,7 @@ interface QueryInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
-    public function orWhereHas(string $relation, ?callable $fn): static;
+    public function orWhereHas(string $relation, ?callable $fn = null): static;
 
     /**
      * Adds an `or $field in ($options)` expression.
@@ -754,7 +754,7 @@ interface QueryInterface
      * Queries the given relation negated.
      *
      * @param string $relation
-     * @param callable $fn
+     * @param callable(QueryInterface<TModel>):void|null $fn
      *
      * @return QueryInterface<TModel>
      * @throws DatabaseExceptionInterface
@@ -763,7 +763,7 @@ interface QueryInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
-    public function orWhereNotHas(string $relation, callable $fn): static;
+    public function orWhereNotHas(string $relation, ?callable $fn = null): static;
 
     /**
      * Adds an `or where $field not in ($options)` expression.
@@ -954,7 +954,7 @@ interface QueryInterface
      * Queries the given relation.
      *
      * @param string $relation
-     * @param callable|null $fn
+     * @param callable(QueryInterface<TModel>):void|null $fn
      *
      * @return QueryInterface<TModel>
      * @throws DatabaseExceptionInterface
@@ -994,7 +994,7 @@ interface QueryInterface
      * Queries the given relation.
      *
      * @param string $relation
-     * @param callable $fn
+     * @param callable(QueryInterface<TModel>):void|null $fn
      *
      * @return QueryInterface<TModel>
      * @throws DatabaseExceptionInterface
@@ -1003,7 +1003,7 @@ interface QueryInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
-    public function whereNotHas(string $relation, callable $fn): static;
+    public function whereNotHas(string $relation, ?callable $fn = null): static;
 
     /**
      * Adds a `where $field not in ($options)` expression.
