@@ -77,7 +77,7 @@ interface ArrayListInterface extends ArrayAccess, ArrayableInterface, Countable,
     /**
      * Converts the array list into another array list.
      *
-     * @template TArrayList of ArrayListInterface
+     * @template TArrayList of ArrayListInterface<TKey, TValue>
      *
      * @param class-string<TArrayList> $implementation
      *

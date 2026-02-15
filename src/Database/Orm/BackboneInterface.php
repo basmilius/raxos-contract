@@ -190,7 +190,7 @@ interface BackboneInterface
 
     /**
      * Reloads the record of the model. This will also flush the caster,
-     * macro and relation cache to start fresh.
+     * macro, and relation cache to start fresh.
      *
      * @return void
      * @throws DatabaseExceptionInterface
