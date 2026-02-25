@@ -29,6 +29,10 @@ interface BackboneInterface
         get;
     }
 
+    public int $id {
+        get;
+    }
+
     public StructureInterface $structure {
         get;
     }
