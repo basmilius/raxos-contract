@@ -26,6 +26,10 @@ interface RouterInterface
         get;
     }
 
+    public array $combinedDynamicRegexes {
+        get;
+    }
+
     public array $dynamicRoutes {
         get;
     }
