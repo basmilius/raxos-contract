@@ -32,6 +32,14 @@ interface StructureInterface
         get;
     }
 
+    public bool $isInitializable {
+        get;
+    }
+
+    public bool $isBackboneInitializable {
+        get;
+    }
+
     /** @var string[]|null */
     public ?array $onDuplicateKeyUpdate {
         get;
