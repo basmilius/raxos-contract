@@ -70,7 +70,7 @@ interface BarcodeInterface
      *
      * @return string
      * @author Bas Milius <bas@mili.us>
-     * @since 17-02-2026
+     * @since 2.0.0
      */
     public function renderPng(
         int $scale = 8,
@@ -89,7 +89,7 @@ interface BarcodeInterface
      *
      * @return string
      * @author Bas Milius <bas@mili.us>
-     * @since 17-02-2026
+     * @since 2.0.0
      */
     public function renderSvg(
         int $scale = 8,
