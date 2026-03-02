@@ -4,8 +4,7 @@ declare(strict_types=1);
 namespace Raxos\Contract\Router;
 
 use Closure;
-use Raxos\Router\Request\Request;
-use Raxos\Router\Response\Response;
+use Raxos\Http\{HttpRequest, HttpResponse};
 use Throwable;
 
 /**
@@ -21,14 +20,14 @@ interface MiddlewareInterface
     /**
      * Handles the request.
      *
-     * @param Request $request
-     * @param Closure(Request):Response $next
+     * @param HttpRequest $request
+     * @param Closure(HttpRequest):HttpResponse $next
      *
-     * @return Response
+     * @return HttpResponse
      * @throws Throwable
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
-    public function handle(Request $request, Closure $next): Response;
+    public function handle(HttpRequest $request, Closure $next): HttpResponse;
 
 }

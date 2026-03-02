@@ -5,8 +5,7 @@ namespace Raxos\Contract\Router;
 
 use Raxos\Collection\Map;
 use Raxos\Contract\Container\ContainerInterface;
-use Raxos\Router\Request\Request;
-use Raxos\Router\Response\Response;
+use Raxos\Http\{HttpRequest, HttpResponse};
 
 /**
  * Interface RouterInterface
@@ -53,13 +52,13 @@ interface RouterInterface
     /**
      * Turns the request into a response.
      *
-     * @param Request $request
+     * @param HttpRequest $request
      *
-     * @return Response
+     * @return HttpResponse
      * @throws RuntimeExceptionInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
-    public function resolve(Request $request): Response;
+    public function resolve(HttpRequest $request): HttpResponse;
 
 }

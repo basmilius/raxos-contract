@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace Raxos\Contract\Router;
 
+use Raxos\Http\HttpRequest;
 use Raxos\Router\Definition\Injectable;
-use Raxos\Router\Request\Request;
 
 /**
  * Interface ValueProviderInterface
@@ -31,7 +31,7 @@ interface ValueProviderInterface
     /**
      * Returns the corresponding value.
      *
-     * @param Request $request
+     * @param HttpRequest $request
      * @param Injectable $injectable
      *
      * @return mixed
@@ -39,6 +39,6 @@ interface ValueProviderInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
-    public function getValue(Request $request, Injectable $injectable): mixed;
+    public function getValue(HttpRequest $request, Injectable $injectable): mixed;
 
 }
