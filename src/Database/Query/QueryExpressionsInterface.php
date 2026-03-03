@@ -213,6 +213,21 @@ interface QueryExpressionsInterface
     ): QueryExpressionInterface;
 
     /**
+     * `count([$distinct] $expr)`
+     *
+     * @param QueryInterface|QueryExpressionInterface|string $expr
+     * @param bool $distinct
+     *
+     * @return QueryExpressionInterface
+     * @author Bas Milius <bas@mili.us>
+     * @since 2.1.0
+     */
+    public function count(
+        QueryInterface|QueryValueInterface|string $expr,
+        bool $distinct = false
+    ): QueryExpressionInterface;
+
+    /**
      * `group_concat([$distinct] $expr [$orderBy] [$separator] [$limit] [$offset])`
      *
      * @param QueryLiteralInterface|string $expr
@@ -1240,6 +1255,39 @@ interface QueryExpressionsInterface
         QueryLiteralInterface|QueryExpressionInterface|Stringable|string|float|int $expr,
         bool $booleanMode = false,
         bool $queryExpansion = false
+    ): QueryExpressionInterface;
+
+    #endregion
+
+    #region Case / When
+
+    /**
+     * `case ... end`
+     *
+     * @param QueryExpressionInterface ...$expr
+     *
+     * @return QueryExpressionInterface
+     * @author Bas Milius <bas@mili.us>
+     * @since 2.1.0
+     */
+    public function case(
+        QueryExpressionInterface ...$expr
+    ): QueryExpressionInterface;
+
+    /**
+     * `when ... then ...`
+     * `else ...` d
+     *
+     * @param QueryExpressionInterface|null $when
+     * @param QueryExpressionInterface|QueryValueInterface $then
+     *
+     * @return QueryExpressionInterface
+     * @author Bas Milius <bas@mili.us>
+     * @since 2.1.0
+     */
+    public function when(
+        ?QueryExpressionInterface $when,
+        QueryExpressionInterface|QueryValueInterface $then
     ): QueryExpressionInterface;
 
     #endregion
