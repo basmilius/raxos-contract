@@ -1264,21 +1264,17 @@ interface QueryExpressionsInterface
     /**
      * `case ... end`
      *
-     * @param QueryExpressionInterface ...$expr
-     *
-     * @return QueryExpressionInterface
+     * @return Expression\CaseStatement
      * @author Bas Milius <bas@mili.us>
      * @since 2.1.0
      */
-    public function case(
-        QueryExpressionInterface ...$expr
-    ): QueryExpressionInterface;
+    public function case(): Expression\CaseStatement;
 
     /**
      * `when ... then ...`
      * `else ...` d
      *
-     * @param QueryExpressionInterface|null $when
+     * @param QueryExpressionInterface $when
      * @param QueryExpressionInterface|QueryValueInterface $then
      *
      * @return QueryExpressionInterface
@@ -1286,7 +1282,7 @@ interface QueryExpressionsInterface
      * @since 2.1.0
      */
     public function when(
-        ?QueryExpressionInterface $when,
+        QueryExpressionInterface $when,
         QueryExpressionInterface|QueryValueInterface $then
     ): QueryExpressionInterface;
 
