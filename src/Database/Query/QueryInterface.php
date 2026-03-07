@@ -435,6 +435,18 @@ interface QueryInterface
     public function runReturning(QueryLiteralInterface|array|string $column): array|string|int;
 
     /**
+     * Executes the query with `RETURNING *` and returns the full resulting row.
+     * Only supported on databases where {@see GrammarInterface::$supportsReturning} is true.
+     *
+     * @return array<string, mixed>
+     * @throws DatabaseExceptionInterface
+     * @throws QueryExceptionInterface
+     * @author Bas Milius <bas@mili.us>
+     * @since 2.1.0
+     */
+    public function runReturningRow(): array;
+
+    /**
      * Executes the query and returns the first row. When no result is found,
      * null is returned.
      *
@@ -627,6 +639,98 @@ interface QueryInterface
      * @since 2.0.0
      */
     public function havingNull(QueryLiteralInterface|string $field): static;
+
+    /**
+     * Adds an `or $field $comparator $value` expression after a having clause.
+     *
+     * @param BackedEnum|Stringable|QueryValueInterface|string|int|float|bool|null $lhs
+     * @param BackedEnum|Stringable|QueryValueInterface|string|int|float|bool|null $cmp
+     * @param BackedEnum|Stringable|QueryValueInterface|string|int|float|bool|null $rhs
+     *
+     * @return QueryInterface<TModel>
+     * @throws QueryExceptionInterface
+     * @author Bas Milius <bas@mili.us>
+     * @since 2.1.0
+     */
+    public function orHaving(
+        BackedEnum|Stringable|QueryValueInterface|string|int|float|bool|null $lhs = null,
+        BackedEnum|Stringable|QueryValueInterface|string|int|float|bool|null $cmp = null,
+        BackedEnum|Stringable|QueryValueInterface|string|int|float|bool|null $rhs = null
+    ): static;
+
+    /**
+     * Adds an `or exists $query` expression after a having clause.
+     *
+     * @param QueryInterface $query
+     *
+     * @return QueryInterface<TModel>
+     * @throws QueryExceptionInterface
+     * @author Bas Milius <bas@mili.us>
+     * @since 2.1.0
+     */
+    public function orHavingExists(QueryInterface $query): static;
+
+    /**
+     * Adds an `or $field in ($options)` expression after a having clause.
+     *
+     * @param QueryLiteralInterface|string $field
+     * @param ArrayableInterface<QueryInterface|QueryLiteralInterface|Stringable|string|float|int>|array<QueryInterface|QueryLiteralInterface|Stringable|string|float|int> $options
+     *
+     * @return QueryInterface<TModel>
+     * @throws QueryExceptionInterface
+     * @author Bas Milius <bas@mili.us>
+     * @since 2.1.0
+     */
+    public function orHavingIn(QueryLiteralInterface|string $field, ArrayableInterface|array $options): static;
+
+    /**
+     * Adds an `or not exists $query` expression after a having clause.
+     *
+     * @param QueryInterface $query
+     *
+     * @return QueryInterface<TModel>
+     * @throws QueryExceptionInterface
+     * @author Bas Milius <bas@mili.us>
+     * @since 2.1.0
+     */
+    public function orHavingNotExists(QueryInterface $query): static;
+
+    /**
+     * Adds an `or $field not in ($options)` expression after a having clause.
+     *
+     * @param QueryLiteralInterface|string $field
+     * @param ArrayableInterface<QueryInterface|QueryLiteralInterface|Stringable|string|float|int>|array<QueryInterface|QueryLiteralInterface|Stringable|string|float|int> $options
+     *
+     * @return QueryInterface<TModel>
+     * @throws QueryExceptionInterface
+     * @author Bas Milius <bas@mili.us>
+     * @since 2.1.0
+     */
+    public function orHavingNotIn(QueryLiteralInterface|string $field, ArrayableInterface|array $options): static;
+
+    /**
+     * Adds an `or $field is not null` expression after a having clause.
+     *
+     * @param QueryLiteralInterface|string $field
+     *
+     * @return QueryInterface<TModel>
+     * @throws QueryExceptionInterface
+     * @author Bas Milius <bas@mili.us>
+     * @since 2.1.0
+     */
+    public function orHavingNotNull(QueryLiteralInterface|string $field): static;
+
+    /**
+     * Adds an `or $field is null` expression after a having clause.
+     *
+     * @param QueryLiteralInterface|string $field
+     *
+     * @return QueryInterface<TModel>
+     * @throws QueryExceptionInterface
+     * @author Bas Milius <bas@mili.us>
+     * @since 2.1.0
+     */
+    public function orHavingNull(QueryLiteralInterface|string $field): static;
 
     /**
      * Adds a `limit $limit offset $offset` expression.

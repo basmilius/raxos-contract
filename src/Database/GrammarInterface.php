@@ -20,6 +20,16 @@ interface GrammarInterface
     }
 
     /**
+     * Returns TRUE when the database supports the RETURNING clause.
+     *
+     * @author Bas Milius <bas@mili.us>
+     * @since 2.1.0
+     */
+    public bool $supportsReturning {
+        get;
+    }
+
+    /**
      * Escapes the given value.
      *
      * @param string $value
