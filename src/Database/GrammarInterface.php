@@ -30,6 +30,17 @@ interface GrammarInterface
     }
 
     /**
+     * Returns TRUE when the database supports row value constructors in WHERE…IN,
+     * i.e. `(col1, col2) IN ((v1, v2), (v3, v4))`.
+     *
+     * @author Bas Milius <bas@mili.us>
+     * @since 2.1.0
+     */
+    public bool $supportsRowValueConstructors {
+        get;
+    }
+
+    /**
      * Escapes the given value.
      *
      * @param string $value
