@@ -7,7 +7,7 @@ use JetBrains\PhpStorm\ExpectedValues;
 use Raxos\Contract\Database\{ConnectionInterface, DatabaseExceptionInterface};
 use Raxos\Contract\Database\Query\{QueryExceptionInterface, QueryInterface};
 use Raxos\Database\Orm\{Model, ModelArrayList};
-use Raxos\Database\Orm\Definition\{ColumnDefinition, MacroDefinition, RelationDefinition};
+use Raxos\Database\Orm\Definition\{ColumnDefinition, EmbeddedDefinition, MacroDefinition, RelationDefinition};
 
 /**
  * Interface BackboneInterface
@@ -154,6 +154,31 @@ interface BackboneInterface
      * @since 2.0.0
      */
     public function setRelationValue(RelationDefinition $property, mixed $value): void;
+
+    /**
+     * Returns the value of the given embedded property.
+     *
+     * @param EmbeddedDefinition $property
+     *
+     * @return mixed
+     * @throws OrmExceptionInterface
+     * @author Bas Milius <bas@mili.us>
+     * @since 2.2.0
+     */
+    public function getEmbeddedValue(EmbeddedDefinition $property): mixed;
+
+    /**
+     * Sets the value of the given embedded property.
+     *
+     * @param EmbeddedDefinition $property
+     * @param mixed $value
+     *
+     * @return void
+     * @throws OrmExceptionInterface
+     * @author Bas Milius <bas@mili.us>
+     * @since 2.2.0
+     */
+    public function setEmbeddedValue(EmbeddedDefinition $property, mixed $value): void;
 
     /**
      * Gets the value(s) of the primary key(s).
