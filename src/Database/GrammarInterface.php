@@ -41,6 +41,17 @@ interface GrammarInterface
     }
 
     /**
+     * Returns TRUE when the database supports row-level locking via
+     * `for update` / `for share`.
+     *
+     * @author Bas Milius <bas@mili.us>
+     * @since 2.2.0
+     */
+    public bool $supportsRowLocking {
+        get;
+    }
+
+    /**
      * Escapes the given value.
      *
      * @param string $value
@@ -50,6 +61,46 @@ interface GrammarInterface
      * @since 2.0.0
      */
     public function escape(string $value): string;
+
+    /**
+     * Compile a `for share` (or dialect equivalent) clause.
+     *
+     * @return string
+     * @throws UnsupportedException
+     * @author Bas Milius <bas@mili.us>
+     * @since 2.2.0
+     */
+    public function compileForShare(): string;
+
+    /**
+     * Compile a `for update` clause.
+     *
+     * @return string
+     * @throws UnsupportedException
+     * @author Bas Milius <bas@mili.us>
+     * @since 2.2.0
+     */
+    public function compileForUpdate(): string;
+
+    /**
+     * Compile a `nowait` lock modifier.
+     *
+     * @return string
+     * @throws UnsupportedException
+     * @author Bas Milius <bas@mili.us>
+     * @since 2.2.0
+     */
+    public function compileLockNowait(): string;
+
+    /**
+     * Compile a `skip locked` lock modifier.
+     *
+     * @return string
+     * @throws UnsupportedException
+     * @author Bas Milius <bas@mili.us>
+     * @since 2.2.0
+     */
+    public function compileLockSkipLocked(): string;
 
     /**
      * Compile a `optimize table $table` query.

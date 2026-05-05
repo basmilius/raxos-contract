@@ -409,17 +409,20 @@ interface QueryInterface
     public function paginate(int $offset, int $limit, ?callable $itemBuilder = null, ?callable $totalBuilder = null, int $fetchMode = PDO::FETCH_ASSOC, array $options = []): Paginated;
 
     /**
-     * Runs the query.
+     * Runs the query and returns the number of affected rows.
+     * Note: for `SELECT` statements the returned value is driver-dependent;
+     * use {@see QueryInterface::array()} or related methods instead.
      *
      * @param array $options
      *
+     * @return int
      * @throws DatabaseExceptionInterface
      * @throws QueryExceptionInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      * @see StatementInterface::run()
      */
-    public function run(array $options = []): void;
+    public function run(array $options = []): int;
 
     /**
      * Returns a query that returns a value. Useful for insert queries.
@@ -535,6 +538,55 @@ interface QueryInterface
      * @since 2.0.0
      */
     public function from(QueryInterface|array|string $tables, ?string $alias = null): static;
+
+    /**
+     * Adds a `for share` (or dialect equivalent) clause to get a shared
+     * row-level lock on the selected rows. Should be chained after
+     * `orderBy()` / `limit()` / `offset()`. Optionally combine with
+     * `nowait()` or `skipLocked()`.
+     *
+     * @return QueryInterface<TModel>
+     * @throws QueryExceptionInterface
+     * @author Bas Milius <bas@mili.us>
+     * @since 2.2.0
+     */
+    public function forShare(): static;
+
+    /**
+     * Adds a `for update` clause to get an exclusive row-level lock on
+     * the selected rows. Should be chained after `orderBy()` / `limit()` /
+     * `offset()`. Optionally combine with `nowait()` or `skipLocked()`.
+     *
+     * @return QueryInterface<TModel>
+     * @throws QueryExceptionInterface
+     * @author Bas Milius <bas@mili.us>
+     * @since 2.2.0
+     */
+    public function forUpdate(): static;
+
+    /**
+     * Adds a `nowait` modifier to the preceding `forUpdate()` / `forShare()`
+     * clause, causing the query to fail immediately when a conflicting lock
+     * is held. Requires MySQL 8+ or MariaDB 10.6+.
+     *
+     * @return QueryInterface<TModel>
+     * @throws QueryExceptionInterface
+     * @author Bas Milius <bas@mili.us>
+     * @since 2.2.0
+     */
+    public function nowait(): static;
+
+    /**
+     * Adds a `skip locked` modifier to the preceding `forUpdate()` /
+     * `forShare()` clause, causing the query to skip rows that are locked
+     * by another transaction. Requires MySQL 8+ or MariaDB 10.6+.
+     *
+     * @return QueryInterface<TModel>
+     * @throws QueryExceptionInterface
+     * @author Bas Milius <bas@mili.us>
+     * @since 2.2.0
+     */
+    public function skipLocked(): static;
 
     /**
      * Adds a `group by $fields` expression.

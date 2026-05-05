@@ -93,14 +93,17 @@ interface StatementInterface
     public function paginate(int $offset, int $limit, ?callable $itemBuilder = null, ?callable $totalBuilder = null, int $fetchMode = PDO::FETCH_ASSOC): Paginated;
 
     /**
-     * Executes the statement.
+     * Executes the statement and returns the number of affected rows.
+     * Note: for `SELECT` statements the returned value is driver-dependent;
+     * use {@see StatementInterface::array()} or related methods instead.
      *
+     * @return int
      * @throws DatabaseExceptionInterface
      * @throws QueryExceptionInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
-    public function run(): void;
+    public function run(): int;
 
     /**
      * Executes the statement and returns the first result.
