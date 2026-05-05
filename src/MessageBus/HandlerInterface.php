@@ -9,6 +9,8 @@ use Throwable;
 /**
  * Interface HandlerInterface
  *
+ * @template TMessage of MessageInterface
+ *
  * @author Bas Milius <bas@mili.us>
  * @package Raxos\Contract\MessageBus
  * @since 2.0.0
@@ -19,7 +21,7 @@ interface HandlerInterface
     /**
      * Handles the given message.
      *
-     * @param MessageInterface $message
+     * @param TMessage $message
      * @param Printer $printer
      *
      * @return void
