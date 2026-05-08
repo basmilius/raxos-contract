@@ -94,7 +94,7 @@ interface HttpSendFileInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
-    public function setBytes(int $bytes): static;
+    public function setBytes(int $bytes): self;
 
     /**
      * Sets the content disposition.
@@ -106,7 +106,7 @@ interface HttpSendFileInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
-    public function setContentDisposition(string $name, string $type): static;
+    public function setContentDisposition(string $name, string $type): self;
 
     /**
      * Sets the content type.
@@ -117,7 +117,7 @@ interface HttpSendFileInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
-    public function setContentType(string $contentType): static;
+    public function setContentType(string $contentType): self;
 
     /**
      * Sets the amount of time to throttle.
@@ -128,7 +128,7 @@ interface HttpSendFileInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
-    public function setThrottle(float $throttle): static;
+    public function setThrottle(float $throttle): self;
 
     /**
      * Handles the file sending.
