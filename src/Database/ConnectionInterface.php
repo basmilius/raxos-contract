@@ -206,6 +206,7 @@ interface ConnectionInterface
      * @param string|null $name
      *
      * @return string
+     * @throws DatabaseExceptionInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      * @see PDO::lastInsertId()
@@ -218,6 +219,7 @@ interface ConnectionInterface
      * @param string|null $name
      *
      * @return int
+     * @throws DatabaseExceptionInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      * @see PDO::lastInsertId()
@@ -280,7 +282,7 @@ interface ConnectionInterface
      * Commits the active transaction.
      *
      * @return bool
-     * @throws QueryExceptionInterface
+     * @throws DatabaseExceptionInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      * @see PDO::commit()
@@ -291,7 +293,7 @@ interface ConnectionInterface
      * Rolls the active transaction back.
      *
      * @return bool
-     * @throws QueryExceptionInterface
+     * @throws DatabaseExceptionInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      * @see PDO::rollBack()
@@ -302,6 +304,7 @@ interface ConnectionInterface
      * Begin a new transaction.
      *
      * @return bool
+     * @throws DatabaseExceptionInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      * @see PDO::beginTransaction()

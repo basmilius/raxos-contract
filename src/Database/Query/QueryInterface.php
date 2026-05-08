@@ -791,6 +791,7 @@ interface QueryInterface
      * @param int $offset
      *
      * @return QueryInterface<TModel>
+     * @throws QueryExceptionInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
@@ -802,6 +803,7 @@ interface QueryInterface
      * @param int $offset
      *
      * @return QueryInterface<TModel>
+     * @throws QueryExceptionInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */

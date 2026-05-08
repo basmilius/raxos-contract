@@ -123,14 +123,14 @@ interface StatementInterface
      * Binds the given value.
      *
      * @param string $name
-     * @param string|int|float|null $value
+     * @param bool|string|int|float|null $value
      * @param int|null $type
      *
      * @return self
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
-    public function bind(string $name, string|int|float|null $value, ?int $type = null): self;
+    public function bind(string $name, bool|string|int|float|null $value, ?int $type = null): self;
 
     /**
      * Creates a new model instance.

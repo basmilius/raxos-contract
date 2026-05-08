@@ -246,4 +246,18 @@ interface BackboneInterface
      */
     public function save(): void;
 
+    /**
+     * Destroys the model. When the structure has a soft-delete column the
+     * record is marked deleted and the in-memory state is refreshed;
+     * otherwise the row is removed.
+     *
+     * @return void
+     * @throws DatabaseExceptionInterface
+     * @throws OrmExceptionInterface
+     * @throws QueryExceptionInterface
+     * @author Bas Milius <bas@mili.us>
+     * @since 2.3.0
+     */
+    public function destroy(): void;
+
 }
