@@ -252,14 +252,12 @@ interface ConnectionInterface
     /**
      * Compose a new query.
      *
-     * @param bool $prepared
-     *
      * @return QueryInterface
      * @throws DatabaseExceptionInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
-    public function query(bool $prepared = true): QueryInterface;
+    public function query(): QueryInterface;
 
     /**
      * Quotes the given value.

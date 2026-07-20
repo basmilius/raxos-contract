@@ -47,8 +47,8 @@ interface QueryInterface
     ): static;
 
     /**
-     * Adds a param and returns its name or when not in prepared mode, returns the
-     * value as string or int.
+     * Adds the value as a bound param and returns its placeholder name. Literals
+     * and booleans are emitted inline and returned as string or int.
      *
      * @param BackedEnum|Stringable|QueryValueInterface|string|int|float|bool|null $value
      *
