@@ -199,6 +199,7 @@ interface QueryInterface
      * Closes a parenthesis group.
      *
      * @return QueryInterface<TModel>
+     * @throws QueryExceptionInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
@@ -526,6 +527,7 @@ interface QueryInterface
      * @param string $table
      *
      * @return QueryInterface<TModel>
+     * @throws QueryExceptionInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
@@ -537,6 +539,7 @@ interface QueryInterface
      * @param string $table
      *
      * @return QueryInterface<TModel>
+     * @throws QueryExceptionInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
@@ -611,6 +614,7 @@ interface QueryInterface
      * @param bool $withRollup
      *
      * @return QueryInterface<TModel>
+     * @throws QueryExceptionInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
@@ -849,6 +853,7 @@ interface QueryInterface
      * @param QueryValueInterface[]|string[]|string $fields
      *
      * @return QueryInterface<TModel>
+     * @throws QueryExceptionInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
@@ -1056,6 +1061,7 @@ interface QueryInterface
      * @param QueryInterface $query
      *
      * @return QueryInterface<TModel>
+     * @throws QueryExceptionInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
@@ -1067,6 +1073,7 @@ interface QueryInterface
      * @param QueryInterface $query
      *
      * @return QueryInterface<TModel>
+     * @throws QueryExceptionInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
@@ -1421,6 +1428,7 @@ interface QueryInterface
      * @param callable|null $fn
      *
      * @return QueryInterface<TModel>
+     * @throws QueryExceptionInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
@@ -1433,6 +1441,7 @@ interface QueryInterface
      * @param callable|null $fn
      *
      * @return QueryInterface<TModel>
+     * @throws QueryExceptionInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
@@ -1445,6 +1454,7 @@ interface QueryInterface
      * @param callable|null $fn
      *
      * @return QueryInterface<TModel>
+     * @throws QueryExceptionInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
@@ -1457,6 +1467,7 @@ interface QueryInterface
      * @param callable|null $fn
      *
      * @return QueryInterface<TModel>
+     * @throws QueryExceptionInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
@@ -1469,6 +1480,7 @@ interface QueryInterface
      * @param callable|null $fn
      *
      * @return QueryInterface<TModel>
+     * @throws QueryExceptionInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
@@ -1481,6 +1493,7 @@ interface QueryInterface
      * @param callable|null $fn
      *
      * @return QueryInterface<TModel>
+     * @throws QueryExceptionInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
@@ -1494,6 +1507,7 @@ interface QueryInterface
      * @param callable|null $on
      *
      * @return QueryInterface<TModel>
+     * @throws QueryExceptionInterface
      * @author Bas Milius <bas@mili.us>
      * @since 3.0.0
      */
@@ -1507,6 +1521,7 @@ interface QueryInterface
      * @param callable|null $on
      *
      * @return QueryInterface<TModel>
+     * @throws QueryExceptionInterface
      * @author Bas Milius <bas@mili.us>
      * @since 3.0.0
      */
@@ -1520,6 +1535,7 @@ interface QueryInterface
      * @param callable|null $on
      *
      * @return QueryInterface<TModel>
+     * @throws QueryExceptionInterface
      * @author Bas Milius <bas@mili.us>
      * @since 3.0.0
      */
@@ -1533,6 +1549,7 @@ interface QueryInterface
      * @param callable|null $on
      *
      * @return QueryInterface<TModel>
+     * @throws QueryExceptionInterface
      * @author Bas Milius <bas@mili.us>
      * @since 3.0.0
      */
@@ -1546,6 +1563,7 @@ interface QueryInterface
      * @param callable|null $on
      *
      * @return QueryInterface<TModel>
+     * @throws QueryExceptionInterface
      * @author Bas Milius <bas@mili.us>
      * @since 3.0.0
      */
@@ -1559,6 +1577,7 @@ interface QueryInterface
      * @param callable|null $on
      *
      * @return QueryInterface<TModel>
+     * @throws QueryExceptionInterface
      * @author Bas Milius <bas@mili.us>
      * @since 3.0.0
      */
