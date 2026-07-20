@@ -8,8 +8,9 @@ use Generator;
 use PDO;
 use Raxos\Collection\Paginated;
 use Raxos\Contract\Collection\{ArrayableInterface, ArrayListInterface};
+use Raxos\Contract\Database\ConnectionInterface;
 use Raxos\Contract\Database\DatabaseExceptionInterface;
-use Raxos\Contract\Database\Orm\OrmExceptionInterface;
+use Raxos\Contract\Database\Orm\{OrmExceptionInterface, PrimerInterface, PrimerTiming};
 use Raxos\Database\Orm\{Model, ModelArrayList};
 use stdClass;
 use Stringable;
@@ -152,6 +153,22 @@ interface QueryInterface
      * @since 2.0.0
      */
     public function eagerLoadReset(): static;
+
+    /**
+     * Registers a primer that runs over the freshly hydrated batch of models
+     * produced by this query. Multiple primers may be registered; primers with
+     * the same timing run in registration order. Accepts a reusable
+     * {@see PrimerInterface} or a callable with the signature
+     * `callable(ArrayListInterface<int, Model>, ConnectionInterface):void`.
+     *
+     * @param PrimerInterface|callable(ArrayListInterface<int, Model>, ConnectionInterface):void $primer
+     * @param PrimerTiming $timing
+     *
+     * @return QueryInterface<TModel>
+     * @author Bas Milius <bas@mili.us>
+     * @since 3.0.0
+     */
+    public function prime(PrimerInterface|callable $primer, PrimerTiming $timing = PrimerTiming::AfterRelations): static;
 
     /**
      * Merges the given query with the current one.

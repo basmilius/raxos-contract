@@ -4,6 +4,8 @@ declare(strict_types=1);
 namespace Raxos\Contract\Database\Query;
 
 use Raxos\Contract\Collection\ArrayListInterface;
+use Raxos\Contract\Database\ConnectionInterface;
+use Raxos\Contract\Database\Orm\PrimerTiming;
 use Raxos\Database\Orm\Model;
 
 /**
@@ -41,5 +43,20 @@ interface InternalQueryInterface
      * @internal
      */
     public function invokeBeforeRelationsHook(ArrayListInterface $instances): void;
+
+    /**
+     * Invokes all registered primers for the given timing over the given
+     * batch of freshly hydrated models.
+     *
+     * @param ArrayListInterface<int, Model> $instances
+     * @param PrimerTiming $timing
+     * @param ConnectionInterface $connection
+     *
+     * @return void
+     * @author Bas Milius <bas@mili.us>
+     * @since 3.0.0
+     * @internal
+     */
+    public function invokePrimers(ArrayListInterface $instances, PrimerTiming $timing, ConnectionInterface $connection): void;
 
 }
