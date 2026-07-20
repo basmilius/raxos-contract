@@ -9,7 +9,7 @@ use Raxos\Contract\Database\{ConnectionInterface, DatabaseExceptionInterface};
 use Raxos\Contract\Database\Query\QueryExceptionInterface;
 use Raxos\Database\Orm\Definition\{ColumnDefinition, PolymorphicDefinition, PropertyDefinition, RelationDefinition};
 use Raxos\Database\Orm\Model;
-use Raxos\Database\Query\Literal\ColumnLiteral;
+use Raxos\Database\Query\Expression\ColumnRef;
 
 /**
  * Interface StructureInterface
@@ -142,17 +142,17 @@ interface StructureInterface
     public function hasProperty(string $key): bool;
 
     /**
-     * Returns a column literal for the given key.
+     * Returns a column reference for the given key.
      *
      * @param string $key
      * @param string|null $table
      *
-     * @return ColumnLiteral
+     * @return ColumnRef
      * @throws OrmExceptionInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
-    public function getColumn(string $key, ?string $table = null): ColumnLiteral;
+    public function getColumn(string $key, ?string $table = null): ColumnRef;
 
     /**
      * Returns the relation instance for a given property.
@@ -177,13 +177,13 @@ interface StructureInterface
     public function getRelations(): Generator;
 
     /**
-     * Returns the first primary key as a column literal for use in relations.
+     * Returns the first primary key as a column reference for use in relations.
      *
-     * @return ColumnLiteral
+     * @return ColumnRef
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
-    public function getRelationPrimaryKey(): ColumnLiteral;
+    public function getRelationPrimaryKey(): ColumnRef;
 
     /**
      * Returns the primary key columns.

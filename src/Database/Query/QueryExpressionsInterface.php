@@ -230,9 +230,9 @@ interface QueryExpressionsInterface
     /**
      * `group_concat([$distinct] $expr [$orderBy] [$separator] [$limit] [$offset])`
      *
-     * @param QueryLiteralInterface|string $expr
+     * @param QueryValueInterface|string $expr
      * @param bool $distinct
-     * @param QueryLiteralInterface|string|null $orderBy
+     * @param QueryValueInterface|string|null $orderBy
      * @param string|null $separator
      * @param int|null $limit
      * @param int|null $offset
@@ -242,9 +242,9 @@ interface QueryExpressionsInterface
      * @since 2.0.0
      */
     public function groupConcat(
-        QueryLiteralInterface|string $expr,
+        QueryValueInterface|string $expr,
         bool $distinct = false,
-        QueryLiteralInterface|string|null $orderBy = null,
+        QueryValueInterface|string|null $orderBy = null,
         ?string $separator = null,
         ?int $limit = null,
         ?int $offset = null
