@@ -195,6 +195,7 @@ interface ConnectionInterface
      * @throws DatabaseExceptionInterface
      * @throws OrmExceptionInterface
      * @throws QueryExceptionInterface
+     * @deprecated 2.3.0
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
