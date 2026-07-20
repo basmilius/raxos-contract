@@ -5,6 +5,7 @@ namespace Raxos\Contract\Database\Query;
 
 use Raxos\Contract\Collection\ArrayListInterface;
 use Raxos\Contract\Database\ConnectionInterface;
+use Raxos\Contract\Database\DatabaseExceptionInterface;
 use Raxos\Contract\Database\Orm\PrimerTiming;
 use Raxos\Database\Orm\Model;
 
@@ -53,6 +54,7 @@ interface InternalQueryInterface
      * @param ConnectionInterface $connection
      *
      * @return void
+     * @throws DatabaseExceptionInterface
      * @author Bas Milius <bas@mili.us>
      * @since 3.0.0
      * @internal

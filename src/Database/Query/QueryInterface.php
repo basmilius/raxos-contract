@@ -68,6 +68,7 @@ interface QueryInterface
      * @param string|null $separator
      *
      * @return QueryInterface<TModel>
+     * @throws QueryExceptionInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
@@ -1003,6 +1004,7 @@ interface QueryInterface
      * @param QueryValueInterface|QueryLiteralInterface[]|string[]|QueryLiteralInterface|string $fields
      *
      * @return QueryInterface<TModel>
+     * @throws QueryExceptionInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
@@ -1014,6 +1016,7 @@ interface QueryInterface
      * @param QueryValueInterface|QueryLiteralInterface|string $field
      *
      * @return QueryInterface<TModel>
+     * @throws QueryExceptionInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
@@ -1025,6 +1028,7 @@ interface QueryInterface
      * @param QueryValueInterface|QueryLiteralInterface|string $field
      *
      * @return QueryInterface<TModel>
+     * @throws QueryExceptionInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
@@ -1357,7 +1361,8 @@ interface QueryInterface
 
     /**
      * Adds a `select $fields` expression. An `int` key yields no alias, a
-     * `string` key (from a named argument) yields an identifier-escaped alias.
+     * `string` key (a named argument or a string key in a passed array) yields
+     * an identifier-escaped alias.
      *
      * @param QueryInterface|QueryExpressionInterface|QueryLiteralInterface|Stringable|array|string|int|float|bool ...$fields
      *

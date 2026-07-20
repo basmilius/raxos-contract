@@ -45,7 +45,7 @@ interface RelationInterface
     public function fetch(Model $instance): Model|ModelArrayList|null;
 
     /**
-     * Returns a prepared query for the relation.
+     * Returns a query for the relation, scoped to the given instance.
      *
      * @param TDeclaringModel&Model $instance
      *
@@ -59,7 +59,7 @@ interface RelationInterface
     public function query(Model $instance): QueryInterface;
 
     /**
-     * Returns a raw unprepared query for the relation.
+     * Returns a raw query for the relation, without instance scoping.
      *
      * @return QueryInterface
      * @throws DatabaseExceptionInterface
