@@ -3,8 +3,9 @@ declare(strict_types=1);
 
 namespace Raxos\Contract\Search;
 
-use Raxos\Contract\Database\Orm\{OrmExceptionInterface, StructureInterface};
-use Raxos\Contract\Database\Query\{QueryExceptionInterface, QueryInterface};
+use Raxos\Contract\Database\DatabaseExceptionInterface;
+use Raxos\Contract\Database\Orm\{StructureInterface};
+use Raxos\Contract\Database\Query\{QueryInterface};
 use Raxos\Database\Orm\Model;
 use Raxos\Search\Attribute\Filter;
 use Raxos\Search\ScoreExpression;
@@ -41,8 +42,7 @@ interface FilterInterface
      * @param QueryNodeInterface $searchQuery
      *
      * @return ScoreExpression
-     * @throws OrmExceptionInterface
-     * @throws QueryExceptionInterface
+     * @throws DatabaseExceptionInterface
      * @throws SearchExceptionInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
