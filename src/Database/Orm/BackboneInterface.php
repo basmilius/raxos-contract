@@ -37,6 +37,22 @@ interface BackboneInterface
         get;
     }
 
+    public ?ModelInterface $currentInstance {
+        get;
+        set;
+    }
+
+    /**
+     * Returns the shared writable instance of the backbone, creating one when
+     * the backbone has none yet. Used wherever an actual model is handed to
+     * consumer code, such as casters, macros and relations.
+     *
+     * @return TModel&Model
+     * @author Bas Milius <bas@mili.us>
+     * @since 3.1.0
+     */
+    public function instance(): Model;
+
     /**
      * Adds the given model instance.
      *
