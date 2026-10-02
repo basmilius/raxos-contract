@@ -28,11 +28,11 @@ interface ArrayListInterface extends ArrayAccess, ArrayableInterface, Countable,
      *
      * @param int $size
      *
-     * @return static<int, static<TKey, TValue>>
+     * @return ArrayListInterface<int, static<TKey, TValue>>
      * @author Bas Milius <bas@mili.us>
-     * @since 2.0.0
+     * @since 3.2.0
      */
-    public function chunk(int $size): static;
+    public function chunk(int $size): ArrayListInterface;
 
     /**
      * Returns a clone of the array list.
@@ -46,22 +46,22 @@ interface ArrayListInterface extends ArrayAccess, ArrayableInterface, Countable,
     /**
      * Collapses the array list.
      *
-     * @return static<TKey, TValue>
+     * @return ArrayListInterface<TKey, TValue>
      * @author Bas Milius <bas@mili.us>
-     * @since 2.0.0
+     * @since 3.2.0
      */
-    public function collapse(): static;
+    public function collapse(): ArrayListInterface;
 
     /**
      * Returns the given column(s) of each item in the array list.
      *
      * @param string|int ...$columns
      *
-     * @return static<mixed, int>
+     * @return ArrayListInterface<mixed, int>
      * @author Bas Milius <bas@mili.us>
-     * @since 2.0.0
+     * @since 3.2.0
      */
-    public function column(string|int ...$columns): static;
+    public function column(string|int ...$columns): ArrayListInterface;
 
     /**
      * Returns TRUE if the given item exists in the array list.
@@ -165,11 +165,11 @@ interface ArrayListInterface extends ArrayAccess, ArrayableInterface, Countable,
      *
      * @param callable(TValue, TKey):TGroup $fn
      *
-     * @return self<TGroup, self<TKey, TValue>>
+     * @return ArrayListInterface<TGroup, static<TKey, TValue>>
      * @author Bas Milius <bas@mili.us>
-     * @since 2.0.0
+     * @since 3.2.0
      */
-    public function groupBy(callable $fn): static;
+    public function groupBy(callable $fn): ArrayListInterface;
 
     /**
      * Returns TRUE if the array list is empty.
@@ -192,12 +192,12 @@ interface ArrayListInterface extends ArrayAccess, ArrayableInterface, Countable,
     /**
      * Returns the keys in the array list.
      *
-     * @return static<int, TKey>
+     * @return ArrayListInterface<int, TKey>
      * @author Bas Milius <bas@mili.us>
-     * @since 2.0.0
+     * @since 3.2.0
      * @see self::values()
      */
-    public function keys(): static;
+    public function keys(): ArrayListInterface;
 
     /**
      * Returns the last element of the array list that matches the
@@ -230,11 +230,11 @@ interface ArrayListInterface extends ArrayAccess, ArrayableInterface, Countable,
      *
      * @param callable(TValue, TKey):TMappedValue $fn
      *
-     * @return static<TKey, TMappedValue>
+     * @return ArrayListInterface<TKey, TMappedValue>
      * @author Bas Milius <bas@mili.us>
-     * @since 2.0.0
+     * @since 3.2.0
      */
-    public function map(callable $fn): static;
+    public function map(callable $fn): ArrayListInterface;
 
     /**
      * Merges the array list with another iterable.
@@ -254,11 +254,11 @@ interface ArrayListInterface extends ArrayAccess, ArrayableInterface, Countable,
      *
      * @param TKey[] $keys
      *
-     * @return static<TKey, TValue>
+     * @return ArrayListInterface<TKey, TValue>
      * @author Bas Milius <bas@mili.us>
-     * @since 2.0.0
+     * @since 3.2.0
      */
-    public function only(array $keys): static;
+    public function only(array $keys): ArrayListInterface;
 
     /**
      * Reduce the array list to a single value using the given function.

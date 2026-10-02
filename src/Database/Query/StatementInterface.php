@@ -63,15 +63,17 @@ interface StatementInterface
      * Executes the statement and returns a generator containing all results.
      *
      * @param int $fetchMode
+     * @param int $batchSize
+     * @param bool $retainCache
      *
      * @return Generator
      * @throws DatabaseExceptionInterface
      * @throws OrmExceptionInterface
      * @throws QueryExceptionInterface
      * @author Bas Milius <bas@mili.us>
-     * @since 2.0.0
+     * @since 3.2.0
      */
-    public function cursor(int $fetchMode = PDO::FETCH_ASSOC): Generator;
+    public function cursor(int $fetchMode = PDO::FETCH_ASSOC, int $batchSize = 100, bool $retainCache = false): Generator;
 
     /**
      * Executes the statement and returns a paginated response.

@@ -28,13 +28,14 @@ interface MessageBusInterface
      *
      * @param string $name
      * @param int $maxMessages
+     * @param class-string[] $allowedClasses
      *
      * @return MessageBusQueueInterface
      * @throws MessageBusExceptionInterface
      * @author Bas Milius <bas@mili.us>
-     * @since 2.0.0
+     * @since 3.2.0
      */
-    public function createQueue(string $name = 'task_queue', int $maxMessages = 25): MessageBusQueueInterface;
+    public function createQueue(string $name = 'task_queue', int $maxMessages = 25, array $allowedClasses = []): MessageBusQueueInterface;
 
     /**
      * Remove a queue.

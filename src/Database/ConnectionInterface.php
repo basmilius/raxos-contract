@@ -166,14 +166,14 @@ interface ConnectionInterface
      *
      * @param QueryInterface|string $query
      *
-     * @return string|int|false
+     * @return string|int|float|bool|null
      * @throws DatabaseExceptionInterface
      * @author Bas Milius <bas@mili.us>
-     * @since 2.0.0
+     * @since 3.2.0
      * @see PDO::query()
      * @see PDOStatement::fetchColumn()
      */
-    public function column(QueryInterface|string $query): string|int|false;
+    public function column(QueryInterface|string $query): string|int|float|bool|null;
 
     /**
      * Executes the given query and returns the number of affected rows.

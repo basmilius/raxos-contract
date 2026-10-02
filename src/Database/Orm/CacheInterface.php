@@ -96,4 +96,16 @@ interface CacheInterface
      */
     public function unset(string $modelClass, array|string|int $primaryKey): void;
 
+    /**
+     * Runs a synchronous hydration scope, retaining existing identities and releasing
+     * only identities first cached by this callback, including when it throws.
+     *
+     * @template T
+     * @param callable():T $fn
+     * @return T
+     * @author Bas Milius <bas@mili.us>
+     * @since 3.2.0
+     */
+    public function scope(callable $fn): mixed;
+
 }

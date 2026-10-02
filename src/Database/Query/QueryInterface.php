@@ -393,16 +393,18 @@ interface QueryInterface
      *
      * @param int $fetchMode
      * @param array $options
+     * @param int $batchSize
+     * @param bool $retainCache
      *
      * @return Generator<TModel>
      * @throws DatabaseExceptionInterface
      * @throws OrmExceptionInterface
      * @throws QueryExceptionInterface
      * @author Bas Milius <bas@mili.us>
-     * @since 2.0.0
+     * @since 3.2.0
      * @see StatementInterface::cursor()
      */
-    public function cursor(int $fetchMode = PDO::FETCH_ASSOC, array $options = []): Generator;
+    public function cursor(int $fetchMode = PDO::FETCH_ASSOC, array $options = [], int $batchSize = 100, bool $retainCache = false): Generator;
 
     /**
      * Runs the query and returns a paginated response.
