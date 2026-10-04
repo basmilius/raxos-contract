@@ -12,6 +12,7 @@ namespace Raxos\Contract\MessageBus;
  */
 interface MessageBusInterface
 {
+
     /**
      * Close the connection.
      *
@@ -50,4 +51,5 @@ interface MessageBusInterface
      * @since 2.0.0
      */
     public function removeQueue(MessageBusQueueInterface $queue): void;
+
 }

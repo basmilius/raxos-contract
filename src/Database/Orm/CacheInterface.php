@@ -14,6 +14,7 @@ use Raxos\Database\Orm\Model;
  */
 interface CacheInterface
 {
+
     /**
      * Finds a cached model.
      *
@@ -123,4 +124,5 @@ interface CacheInterface
      * @since 3.2.0
      */
     public function scope(callable $fn): mixed;
+
 }

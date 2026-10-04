@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Raxos\Contract\OpenAPI;
 
-use Raxos\OpenAPI\Attribute as Attr;
+use Raxos\OpenAPI\Attribute\Schema as SchemaAttribute;
 use Raxos\OpenAPI\Definition\{Reference, Schema};
 use Raxos\OpenAPI\SchemaBuilder;
 
@@ -21,7 +21,7 @@ interface SchemaBuilderInterface
      * Builds the schema.
      *
      * @param SchemaBuilder $builder
-     * @param Attr\Schema $schemaAttr
+     * @param SchemaAttribute $schemaAttr
      * @param string[] $types
      * @param bool $nullable
      *
@@ -30,7 +30,7 @@ interface SchemaBuilderInterface
      * @author Bas Milius <bas@mili.us>
      * @since 1.8.0
      */
-    public function build(SchemaBuilder $builder, Attr\Schema $schemaAttr, array $types, bool $nullable): Reference|Schema|null;
+    public function build(SchemaBuilder $builder, SchemaAttribute $schemaAttr, array $types, bool $nullable): Reference|Schema|null;
 
     /**
      * Checks if the builder can build the schema.

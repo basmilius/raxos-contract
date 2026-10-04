@@ -14,6 +14,7 @@ namespace Raxos\Contract\RateLimit;
  */
 interface RateLimiterSnapshotStoreInterface extends RateLimiterStoreInterface
 {
+
     /**
      * Atomically reads the count and remaining lifetime, optionally recording one attempt in the same operation.
      *
@@ -30,4 +31,5 @@ interface RateLimiterSnapshotStoreInterface extends RateLimiterStoreInterface
         int $interval,
         bool $increment = true
     ): array;
+
 }

@@ -31,6 +31,7 @@ use Stringable;
  */
 interface QueryInterface
 {
+
     /**
      * Adds an expression to the query.
      *
@@ -1779,4 +1780,5 @@ interface QueryInterface
         string $name,
         QueryInterface $query
     ): static;
+
 }

@@ -22,6 +22,7 @@ use IteratorAggregate;
  */
 interface ArrayListInterface extends ArrayAccess, ArrayableInterface, Countable, IteratorAggregate
 {
+
     /**
      * Chunks the array list in groups of the given size.
      *
@@ -400,4 +401,5 @@ interface ArrayListInterface extends ArrayAccess, ArrayableInterface, Countable,
      * @since 2.0.0
      */
     public static function of(iterable $items): static;
+
 }

@@ -15,6 +15,7 @@ use UnitEnum;
  */
 interface ContainerInterface
 {
+
     /**
      * Adds a binding to the container.
      *
@@ -181,4 +182,5 @@ interface ContainerInterface
         string $abstract,
         UnitEnum|string|null $tag = null
     ): bool;
+
 }

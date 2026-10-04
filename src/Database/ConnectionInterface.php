@@ -22,6 +22,7 @@ use Raxos\Database\Db;
  */
 interface ConnectionInterface
 {
+
     /**
      * Returns the cache instance.
      *
@@ -364,4 +365,5 @@ interface ConnectionInterface
      * @since 2.0.0
      */
     public function tableExists(string $table): bool;
+
 }

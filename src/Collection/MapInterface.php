@@ -19,6 +19,7 @@ use IteratorAggregate;
  */
 interface MapInterface extends ArrayableInterface, Countable, IteratorAggregate
 {
+
     /**
      * Returns the value at the given key.
      *
@@ -51,4 +52,5 @@ interface MapInterface extends ArrayableInterface, Countable, IteratorAggregate
      * @since 2.0.0
      */
     public function merge(self|array $other): static;
+
 }

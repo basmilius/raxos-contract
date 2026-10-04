@@ -16,6 +16,7 @@ use Throwable;
  */
 interface TransactionalConnectionInterface extends ConnectionInterface
 {
+
     /**
      * Commits the callback result on success and rolls back its owned transaction level on failure.
      *
@@ -40,4 +41,5 @@ interface TransactionalConnectionInterface extends ConnectionInterface
      * @since 3.3.0
      */
     public function afterCommit(callable $fn): void;
+
 }

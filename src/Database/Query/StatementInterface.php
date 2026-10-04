@@ -23,6 +23,7 @@ use stdClass;
  */
 interface StatementInterface
 {
+
     /**
      * Retains the compiled SQL used to execute and diagnose this statement.
      *
@@ -264,4 +265,5 @@ interface StatementInterface
      * @since 2.0.0
      */
     public function withoutModel(): self;
+
 }

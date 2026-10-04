@@ -5,13 +5,13 @@ namespace Raxos\Contract\Database\Orm;
 
 use JsonSerializable;
 use Raxos\Contract\Collection\ArrayableInterface;
-use Raxos\Database\Orm\ReadonlyModel;
+use Raxos\Database\Orm\{Model, ReadonlyModel};
 use Stringable;
 
 /**
  * Interface ModelInterface
  *
- * The read-only surface of a model. Both {@see \Raxos\Database\Orm\Model} and
+ * The read-only surface of a model. Both {@see Model} and
  * {@see ReadonlyModel} implement it, so a consumer that only reads can accept
  * either. Mutation lives in {@see MutableModelInterface}.
  *

@@ -20,6 +20,7 @@ use Raxos\Contract\Collection\ArrayListInterface;
  */
 interface KeysetQueryInterface extends QueryInterface
 {
+
     /**
      * Continues an ordered result without OFFSET or a total-count query. The final sort key must be unique.
      *
@@ -80,4 +81,5 @@ interface KeysetQueryInterface extends QueryInterface
         bool $descending = false,
         bool $retainCache = false
     ): void;
+
 }

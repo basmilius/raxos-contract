@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace Raxos\Contract\Collection;
 
-
 /**
  * Interface MutableArrayListInterface
  *
@@ -16,6 +15,7 @@ namespace Raxos\Contract\Collection;
  */
 interface MutableArrayListInterface
 {
+
     /**
      * Appends the given item.
      *
@@ -55,4 +55,5 @@ interface MutableArrayListInterface
      * @since 2.0.0
      */
     public function shift(): mixed;
+
 }

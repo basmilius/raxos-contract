@@ -17,6 +17,7 @@ use UnitEnum;
  */
 interface ScopedContainerInterface extends ContainerInterface
 {
+
     /**
      * Registers a binding whose instance is shared only within the current scope.
      *
@@ -46,4 +47,5 @@ interface ScopedContainerInterface extends ContainerInterface
      * @since 3.3.0
      */
     public function scope(callable $fn): mixed;
+
 }
