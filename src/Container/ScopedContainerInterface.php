@@ -23,6 +23,7 @@ interface ScopedContainerInterface extends ContainerInterface
      * @param string $abstract
      * @param callable|string|null $concrete
      * @param UnitEnum|string|null $tag
+     *
      * @return void
      * @author Bas Milius <bas@mili.us>
      * @since 3.3.0
@@ -38,6 +39,7 @@ interface ScopedContainerInterface extends ContainerInterface
      *
      * @template T
      * @param callable(ScopedContainerInterface):T $fn
+     *
      * @return T
      * @throws Throwable
      * @author Bas Milius <bas@mili.us>

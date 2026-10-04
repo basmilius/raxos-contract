@@ -21,6 +21,7 @@ interface TransactionalConnectionInterface extends ConnectionInterface
      *
      * @template T
      * @param callable():T $fn
+     *
      * @return T
      * @throws DatabaseExceptionInterface|Throwable
      * @author Bas Milius <bas@mili.us>
@@ -32,6 +33,7 @@ interface TransactionalConnectionInterface extends ConnectionInterface
      * Runs immediately outside a transaction, otherwise after the outer commit.
      *
      * @param callable():void $fn
+     *
      * @return void
      * @throws Throwable
      * @author Bas Milius <bas@mili.us>

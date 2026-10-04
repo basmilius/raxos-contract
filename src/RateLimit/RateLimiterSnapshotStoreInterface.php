@@ -20,6 +20,7 @@ interface RateLimiterSnapshotStoreInterface extends RateLimiterStoreInterface
      * @param string $key
      * @param int $interval
      * @param bool $increment
+     *
      * @return array{operations:int, ttl:int}
      * @author Bas Milius <bas@mili.us>
      * @since 3.3.0

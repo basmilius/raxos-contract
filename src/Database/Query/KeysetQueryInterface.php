@@ -28,6 +28,7 @@ interface KeysetQueryInterface extends QueryInterface
      * @param list<string> $columns
      * @param bool $descending
      * @param array $options
+     *
      * @return CursorPage<TModel|array>
      * @author Bas Milius <bas@mili.us>
      * @since 3.3.0
@@ -47,6 +48,7 @@ interface KeysetQueryInterface extends QueryInterface
      * @param string|list<string> $column
      * @param bool $descending
      * @param bool $retainCache
+     *
      * @return Generator<int, TModel|array>
      * @author Bas Milius <bas@mili.us>
      * @since 3.3.0
@@ -66,6 +68,7 @@ interface KeysetQueryInterface extends QueryInterface
      * @param string|list<string> $column
      * @param bool $descending
      * @param bool $retainCache
+     *
      * @return void
      * @author Bas Milius <bas@mili.us>
      * @since 3.3.0

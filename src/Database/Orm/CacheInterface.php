@@ -117,6 +117,7 @@ interface CacheInterface
      *
      * @template T
      * @param callable():T $fn
+     *
      * @return T
      * @author Bas Milius <bas@mili.us>
      * @since 3.2.0
