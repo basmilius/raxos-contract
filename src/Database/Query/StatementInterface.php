@@ -10,7 +10,8 @@ use Raxos\Collection\Paginated;
 use Raxos\Contract\Collection\ArrayListInterface;
 use Raxos\Contract\Database\DatabaseExceptionInterface;
 use Raxos\Contract\Database\Orm\OrmExceptionInterface;
-use Raxos\Database\Orm\{Model, ModelArrayList};
+use Raxos\Database\Orm\Model;
+use Raxos\Database\Orm\ModelArrayList;
 use stdClass;
 
 /**
@@ -22,11 +23,24 @@ use stdClass;
  */
 interface StatementInterface
 {
-
+    /**
+     * Retains the compiled SQL used to execute and diagnose this statement.
+     *
+     * @var string
+     * @author Bas Milius <bas@mili.us>
+     * @since 2.0.0
+     */
     public string $sql {
         get;
     }
 
+    /**
+     * Owns the active result cursor until rows have been consumed or the cursor is closed.
+     *
+     * @var PDOStatement
+     * @author Bas Milius <bas@mili.us>
+     * @since 2.0.0
+     */
     public PDOStatement $pdoStatement {
         get;
     }
@@ -71,9 +85,13 @@ interface StatementInterface
      * @throws OrmExceptionInterface
      * @throws QueryExceptionInterface
      * @author Bas Milius <bas@mili.us>
-     * @since 3.2.0
+     * @since 2.0.0
      */
-    public function cursor(int $fetchMode = PDO::FETCH_ASSOC, int $batchSize = 100, bool $retainCache = false): Generator;
+    public function cursor(
+        int $fetchMode = PDO::FETCH_ASSOC,
+        int $batchSize = 100,
+        bool $retainCache = false
+    ): Generator;
 
     /**
      * Executes the statement and returns a paginated response.
@@ -92,7 +110,13 @@ interface StatementInterface
      * @since 2.0.0
      * @see StatementInterface::arrayList()
      */
-    public function paginate(int $offset, int $limit, ?callable $itemBuilder = null, ?callable $totalBuilder = null, int $fetchMode = PDO::FETCH_ASSOC): Paginated;
+    public function paginate(
+        int $offset,
+        int $limit,
+        ?callable $itemBuilder = null,
+        ?callable $totalBuilder = null,
+        int $fetchMode = PDO::FETCH_ASSOC
+    ): Paginated;
 
     /**
      * Executes the statement and returns the number of affected rows.
@@ -132,7 +156,11 @@ interface StatementInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
-    public function bind(string $name, bool|string|int|float|null $value, ?int $type = null): self;
+    public function bind(
+        string $name,
+        bool|string|int|float|null $value,
+        ?int $type = null
+    ): self;
 
     /**
      * Creates a new model instance.
@@ -236,5 +264,4 @@ interface StatementInterface
      * @since 2.0.0
      */
     public function withoutModel(): self;
-
 }

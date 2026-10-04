@@ -6,8 +6,11 @@ namespace Raxos\Contract\Database;
 use BackedEnum;
 use JetBrains\PhpStorm\ExpectedValues;
 use PDO;
-use Raxos\Contract\Database\Orm\{CacheInterface, OrmExceptionInterface};
-use Raxos\Contract\Database\Query\{QueryExceptionInterface, QueryInterface, StatementInterface};
+use Raxos\Contract\Database\Orm\CacheInterface;
+use Raxos\Contract\Database\Orm\OrmExceptionInterface;
+use Raxos\Contract\Database\Query\QueryExceptionInterface;
+use Raxos\Contract\Database\Query\QueryInterface;
+use Raxos\Contract\Database\Query\StatementInterface;
 use Raxos\Database\Db;
 
 /**
@@ -19,7 +22,6 @@ use Raxos\Database\Db;
  */
 interface ConnectionInterface
 {
-
     /**
      * Returns the cache instance.
      *
@@ -169,7 +171,7 @@ interface ConnectionInterface
      * @return string|int|float|bool|null
      * @throws DatabaseExceptionInterface
      * @author Bas Milius <bas@mili.us>
-     * @since 3.2.0
+     * @since 2.0.0
      * @see PDO::query()
      * @see PDOStatement::fetchColumn()
      */
@@ -248,7 +250,10 @@ interface ConnectionInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
-    public function prepare(QueryInterface|string $query, array $options = []): StatementInterface;
+    public function prepare(
+        QueryInterface|string $query,
+        array $options = []
+    ): StatementInterface;
 
     /**
      * Compose a new query.
@@ -331,7 +336,10 @@ interface ConnectionInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
-    public function tableColumnExists(string $table, string $column): bool;
+    public function tableColumnExists(
+        string $table,
+        string $column
+    ): bool;
 
     /**
      * Returns all the columns of the given table.
@@ -356,5 +364,4 @@ interface ConnectionInterface
      * @since 2.0.0
      */
     public function tableExists(string $table): bool;
-
 }

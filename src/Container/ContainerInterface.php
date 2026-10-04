@@ -15,7 +15,6 @@ use UnitEnum;
  */
 interface ContainerInterface
 {
-
     /**
      * Adds a binding to the container.
      *
@@ -26,7 +25,10 @@ interface ContainerInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
-    public function bind(string $abstract, callable|string|null $concrete): void;
+    public function bind(
+        string $abstract,
+        callable|string|null $concrete
+    ): void;
 
     /**
      * Adds a binding to the container if one doesn't exist.
@@ -38,7 +40,10 @@ interface ContainerInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
-    public function bindIf(string $abstract, callable|string|null $concrete): void;
+    public function bindIf(
+        string $abstract,
+        callable|string|null $concrete
+    ): void;
 
     /**
      * Calls the given callable, autowiring any unprovided parameters via the container.
@@ -59,7 +64,10 @@ interface ContainerInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.2.0
      */
-    public function call(Closure|array|string $callable, array $args = []): mixed;
+    public function call(
+        Closure|array|string $callable,
+        array $args = []
+    ): mixed;
 
     /**
      * Registers an existing instance as a singleton in the container.
@@ -74,7 +82,11 @@ interface ContainerInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.2.0
      */
-    public function instance(string $abstract, object $instance, UnitEnum|string|null $tag = null): void;
+    public function instance(
+        string $abstract,
+        object $instance,
+        UnitEnum|string|null $tag = null
+    ): void;
 
     /**
      * Adds a singleton binding to the container.
@@ -87,7 +99,11 @@ interface ContainerInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
-    public function singleton(string $abstract, callable|string|null $concrete, UnitEnum|string|null $tag = null): void;
+    public function singleton(
+        string $abstract,
+        callable|string|null $concrete,
+        UnitEnum|string|null $tag = null
+    ): void;
 
     /**
      * Adds a singleton binding to the container if one doesn't exist.
@@ -100,7 +116,11 @@ interface ContainerInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
-    public function singletonIf(string $abstract, callable|string|null $concrete, UnitEnum|string|null $tag = null): void;
+    public function singletonIf(
+        string $abstract,
+        callable|string|null $concrete,
+        UnitEnum|string|null $tag = null
+    ): void;
 
     /**
      * Returns all resolved singletons that share the given tag, keyed by their abstract.
@@ -124,22 +144,28 @@ interface ContainerInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
-    public function unbind(string $abstract, bool $tagged = false): void;
+    public function unbind(
+        string $abstract,
+        bool $tagged = false
+    ): void;
 
     /**
      * Returns an instance from the container.
      *
-     * @template TClass of object
+     * @template TClass of string
      *
-     * @param class-string<TClass>|string $abstract
+     * @param TClass $abstract
      * @param UnitEnum|string|null $tag
      *
-     * @return TClass|object
+     * @return ($abstract is class-string ? new<TClass> : object)
      * @throws ContainerExceptionInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
-    public function get(string $abstract, UnitEnum|string|null $tag = null): object;
+    public function get(
+        string $abstract,
+        UnitEnum|string|null $tag = null
+    ): object;
 
     /**
      * Checks if the container has a binding for the given abstract.
@@ -151,6 +177,8 @@ interface ContainerInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
-    public function has(string $abstract, UnitEnum|string|null $tag = null): bool;
-
+    public function has(
+        string $abstract,
+        UnitEnum|string|null $tag = null
+    ): bool;
 }

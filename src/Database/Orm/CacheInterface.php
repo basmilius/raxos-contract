@@ -14,7 +14,6 @@ use Raxos\Database\Orm\Model;
  */
 interface CacheInterface
 {
-
     /**
      * Finds a cached model.
      *
@@ -25,7 +24,10 @@ interface CacheInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
-    public function find(string $modelClass, callable $predicate): ?Model;
+    public function find(
+        string $modelClass,
+        callable $predicate
+    ): ?Model;
 
     /**
      * Flushes the cache for the given model.
@@ -57,7 +59,10 @@ interface CacheInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
-    public function get(string $modelClass, array|string|int $primaryKey): ?Model;
+    public function get(
+        string $modelClass,
+        array|string|int $primaryKey
+    ): ?Model;
 
     /**
      * Returns TRUE if a model with the given primary key is cached.
@@ -69,7 +74,10 @@ interface CacheInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
-    public function has(string $modelClass, array|string|int $primaryKey): bool;
+    public function has(
+        string $modelClass,
+        array|string|int $primaryKey
+    ): bool;
 
     /**
      * Caches a model.
@@ -82,7 +90,11 @@ interface CacheInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
-    public function set(string $modelClass, array|string|int $primaryKey, Model $instance): void;
+    public function set(
+        string $modelClass,
+        array|string|int $primaryKey,
+        Model $instance
+    ): void;
 
     /**
      * Removes a model from the cache.
@@ -94,7 +106,10 @@ interface CacheInterface
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
-    public function unset(string $modelClass, array|string|int $primaryKey): void;
+    public function unset(
+        string $modelClass,
+        array|string|int $primaryKey
+    ): void;
 
     /**
      * Runs a synchronous hydration scope, retaining existing identities and releasing
@@ -107,5 +122,4 @@ interface CacheInterface
      * @since 3.2.0
      */
     public function scope(callable $fn): mixed;
-
 }

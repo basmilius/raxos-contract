@@ -19,7 +19,7 @@ Shared interfaces for Raxos implementations and application extension points.
 Requires PHP 8.5 or later. Enable the `pdo` PHP extension. Composer checks the remaining package and extension dependencies declared in [composer.json](composer.json).
 
 ```sh
-composer require "raxos/contract:^3.2"
+composer require "raxos/contract:^3.3"
 ```
 
 ## Usage

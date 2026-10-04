@@ -9,7 +9,9 @@ use IteratorAggregate;
 /**
  * Interface MapInterface
  *
- * @template TValue of mixed
+ * @template TValue
+ * @extends ArrayableInterface<string, TValue>
+ * @extends IteratorAggregate<string, TValue>
  *
  * @author Bas Milius <bas@mili.us>
  * @package Raxos\Contract\Collection
@@ -17,13 +19,12 @@ use IteratorAggregate;
  */
 interface MapInterface extends ArrayableInterface, Countable, IteratorAggregate
 {
-
     /**
      * Returns the value at the given key.
      *
      * @param string $key
      *
-     * @return TValue
+     * @return TValue|null
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
@@ -50,5 +51,4 @@ interface MapInterface extends ArrayableInterface, Countable, IteratorAggregate
      * @since 2.0.0
      */
     public function merge(self|array $other): static;
-
 }

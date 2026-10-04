@@ -45,5 +45,10 @@
     },
     "scripts": {
         "test": "pest --compact"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "3.3.x-dev"
+        }
     }
 }

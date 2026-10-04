@@ -22,7 +22,6 @@ use IteratorAggregate;
  */
 interface ArrayListInterface extends ArrayAccess, ArrayableInterface, Countable, IteratorAggregate
 {
-
     /**
      * Chunks the array list in groups of the given size.
      *
@@ -30,7 +29,7 @@ interface ArrayListInterface extends ArrayAccess, ArrayableInterface, Countable,
      *
      * @return ArrayListInterface<int, static<TKey, TValue>>
      * @author Bas Milius <bas@mili.us>
-     * @since 3.2.0
+     * @since 2.0.0
      */
     public function chunk(int $size): ArrayListInterface;
 
@@ -48,7 +47,7 @@ interface ArrayListInterface extends ArrayAccess, ArrayableInterface, Countable,
      *
      * @return ArrayListInterface<TKey, TValue>
      * @author Bas Milius <bas@mili.us>
-     * @since 3.2.0
+     * @since 2.0.0
      */
     public function collapse(): ArrayListInterface;
 
@@ -57,9 +56,9 @@ interface ArrayListInterface extends ArrayAccess, ArrayableInterface, Countable,
      *
      * @param string|int ...$columns
      *
-     * @return ArrayListInterface<mixed, int>
+     * @return ArrayListInterface<array-key, mixed>
      * @author Bas Milius <bas@mili.us>
-     * @since 3.2.0
+     * @since 2.0.0
      */
     public function column(string|int ...$columns): ArrayListInterface;
 
@@ -146,7 +145,10 @@ interface ArrayListInterface extends ArrayAccess, ArrayableInterface, Countable,
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
-    public function first(?callable $predicate = null, mixed $default = null): mixed;
+    public function first(
+        ?callable $predicate = null,
+        mixed $default = null
+    ): mixed;
 
     /**
      * Returns the first key of the array list.
@@ -167,7 +169,7 @@ interface ArrayListInterface extends ArrayAccess, ArrayableInterface, Countable,
      *
      * @return ArrayListInterface<TGroup, static<TKey, TValue>>
      * @author Bas Milius <bas@mili.us>
-     * @since 3.2.0
+     * @since 2.0.0
      */
     public function groupBy(callable $fn): ArrayListInterface;
 
@@ -194,7 +196,7 @@ interface ArrayListInterface extends ArrayAccess, ArrayableInterface, Countable,
      *
      * @return ArrayListInterface<int, TKey>
      * @author Bas Milius <bas@mili.us>
-     * @since 3.2.0
+     * @since 2.0.0
      * @see self::values()
      */
     public function keys(): ArrayListInterface;
@@ -212,7 +214,10 @@ interface ArrayListInterface extends ArrayAccess, ArrayableInterface, Countable,
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
-    public function last(?callable $predicate = null, mixed $default = null): mixed;
+    public function last(
+        ?callable $predicate = null,
+        mixed $default = null
+    ): mixed;
 
     /**
      * Returns the last key of the array list.
@@ -228,11 +233,11 @@ interface ArrayListInterface extends ArrayAccess, ArrayableInterface, Countable,
      *
      * @template TMappedValue
      *
-     * @param callable(TValue, TKey):TMappedValue $fn
+     * @param callable(TValue):TMappedValue $fn
      *
      * @return ArrayListInterface<TKey, TMappedValue>
      * @author Bas Milius <bas@mili.us>
-     * @since 3.2.0
+     * @since 2.0.0
      */
     public function map(callable $fn): ArrayListInterface;
 
@@ -256,7 +261,7 @@ interface ArrayListInterface extends ArrayAccess, ArrayableInterface, Countable,
      *
      * @return ArrayListInterface<TKey, TValue>
      * @author Bas Milius <bas@mili.us>
-     * @since 3.2.0
+     * @since 2.0.0
      */
     public function only(array $keys): ArrayListInterface;
 
@@ -265,14 +270,17 @@ interface ArrayListInterface extends ArrayAccess, ArrayableInterface, Countable,
      *
      * @template TResult of mixed
      *
-     * @param callable(TResult, TValue, TKey):TResult $fn
+     * @param callable(TResult|null, TValue):TResult $fn
      * @param TResult|null $initial
      *
-     * @return TResult
+     * @return TResult|null
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
-    public function reduce(callable $fn, mixed $initial = null): mixed;
+    public function reduce(
+        callable $fn,
+        mixed $initial = null
+    ): mixed;
 
     /**
      * Reverses the array list.
@@ -314,7 +322,10 @@ interface ArrayListInterface extends ArrayAccess, ArrayableInterface, Countable,
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
-    public function slice(int $offset, ?int $length = null): static;
+    public function slice(
+        int $offset,
+        ?int $length = null
+    ): static;
 
     /**
      * Returns TRUE if some items in the array list match the
@@ -350,7 +361,11 @@ interface ArrayListInterface extends ArrayAccess, ArrayableInterface, Countable,
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */
-    public function splice(int $offset = 0, int $length = 0, mixed ...$replacements): static;
+    public function splice(
+        int $offset = 0,
+        int $length = 0,
+        mixed ...$replacements
+    ): static;
 
     /**
      * Returns unique values within the array list.
@@ -374,7 +389,7 @@ interface ArrayListInterface extends ArrayAccess, ArrayableInterface, Countable,
     /**
      * Creates a new ArrayList instance with the given items.
      *
-     * @template TOfKey
+     * @template TOfKey of array-key
      * @template TOfValue
      *
      * @param iterable<TOfKey, TOfValue> $items
@@ -385,5 +400,4 @@ interface ArrayListInterface extends ArrayAccess, ArrayableInterface, Countable,
      * @since 2.0.0
      */
     public static function of(iterable $items): static;
-
 }

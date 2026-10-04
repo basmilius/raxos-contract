@@ -3,17 +3,12 @@ declare(strict_types=1);
 
 namespace Raxos\Contract\Collection;
 
-use ArrayAccess;
-use IteratorAggregate;
 
 /**
  * Interface MutableArrayListInterface
  *
  * @template TKey of array-key
  * @template TValue
- * @extends ArrayAccess<TKey, TValue>
- * @extends ArrayableInterface<TKey, TValue>
- * @extends IteratorAggregate<TKey, TValue>
  *
  * @author Bas Milius <bas@mili.us>
  * @package Raxos\Contract\Collection
@@ -21,7 +16,6 @@ use IteratorAggregate;
  */
 interface MutableArrayListInterface
 {
-
     /**
      * Appends the given item.
      *
@@ -61,5 +55,4 @@ interface MutableArrayListInterface
      * @since 2.0.0
      */
     public function shift(): mixed;
-
 }

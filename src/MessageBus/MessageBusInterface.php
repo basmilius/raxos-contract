@@ -12,7 +12,6 @@ namespace Raxos\Contract\MessageBus;
  */
 interface MessageBusInterface
 {
-
     /**
      * Close the connection.
      *
@@ -33,9 +32,13 @@ interface MessageBusInterface
      * @return MessageBusQueueInterface
      * @throws MessageBusExceptionInterface
      * @author Bas Milius <bas@mili.us>
-     * @since 3.2.0
+     * @since 2.0.0
      */
-    public function createQueue(string $name = 'task_queue', int $maxMessages = 25, array $allowedClasses = []): MessageBusQueueInterface;
+    public function createQueue(
+        string $name = 'task_queue',
+        int $maxMessages = 25,
+        array $allowedClasses = []
+    ): MessageBusQueueInterface;
 
     /**
      * Remove a queue.
@@ -47,5 +50,4 @@ interface MessageBusInterface
      * @since 2.0.0
      */
     public function removeQueue(MessageBusQueueInterface $queue): void;
-
 }
